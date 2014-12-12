@@ -9,6 +9,15 @@
 
 Make comparator from key function, less function, or both.
 
+Comparator is a function that given two arguments `a` and `b` returns a number that is:
+  - negative if `a` precedes `b`;
+  - zero if `a` and `b` are effectively equal;
+  - positive if `b` precedes `a`.
+
+Comparators are used in such functions as `Array.prototype.sort` to set up object ordering.
+
+Unfortunately, it is not very pleasant to define such functions, hence this module.
+
 ## Example
 
 ```js
