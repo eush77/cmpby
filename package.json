@@ -4,6 +4,9 @@
   "description": "Create comparator from key or less function",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
   "homepage": "https://github.com/eush77/cmp-key",
   "repository": {
     "type": "git",
@@ -27,5 +30,7 @@
   "dependencies": {
     "declared": "^0.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "tape": "^3.0.3"
+  }
 }
