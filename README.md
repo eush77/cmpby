@@ -1,18 +1,18 @@
-# cmp-key [![Build Status][travis-badge]][travis] [![Dependency Status][david-badge]][david]
+# cmpby [![Build Status][travis-badge]][travis] [![Dependency Status][david-badge]][david]
 
-[![npm](https://nodei.co/npm/cmp-key.png)](https://nodei.co/npm/cmp-key/)
+[![npm](https://nodei.co/npm/cmpby.png)](https://nodei.co/npm/cmpby/)
 
-[travis]: https://travis-ci.org/eush77/cmp-key
-[travis-badge]: https://travis-ci.org/eush77/cmp-key.svg
-[david]: https://david-dm.org/eush77/cmp-key
-[david-badge]: https://david-dm.org/eush77/cmp-key.png
+[travis]: https://travis-ci.org/eush77/cmpby
+[travis-badge]: https://travis-ci.org/eush77/cmpby.svg
+[david]: https://david-dm.org/eush77/cmpby
+[david-badge]: https://david-dm.org/eush77/cmpby.png
 
 Make comparator from key function, less function, or both.
 
 ## Example
 
 ```js
-> ['aaa', 'zz', 'd'].sort(cmpKey({
+> ['aaa', 'zz', 'd'].sort(cmpby({
     less: function (a, b) { return a.length < b.length; }
   }))
 [ 'd', 'zz', 'aaa' ]
@@ -20,7 +20,7 @@ Make comparator from key function, less function, or both.
 
 ## API
 
-### `cmpKey([keyfn], [options])`
+### `cmpby([keyfn], [options])`
 
 `keyfn` maps objects to keys.
 
@@ -37,7 +37,7 @@ Make comparator from key function, less function, or both.
 ## Install
 
 ```shell
-npm install cmp-key
+npm install cmpby
 ```
 
 ## License

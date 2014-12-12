@@ -1,5 +1,5 @@
 {
-  "name": "cmp-key",
+  "name": "cmpby",
   "version": "0.0.0",
   "description": "Create comparator from key or less function",
   "author": "Eugene Sharygin <eush77@gmail.com>",
@@ -7,13 +7,13 @@
   "scripts": {
     "test": "tape test/*.js"
   },
-  "homepage": "https://github.com/eush77/cmp-key",
+  "homepage": "https://github.com/eush77/cmpby",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eush77/cmp-key"
+    "url": "https://github.com/eush77/cmpby"
   },
   "bugs": {
-    "url": "https://github.com/eush77/cmp-key/issues"
+    "url": "https://github.com/eush77/cmpby/issues"
   },
   "keywords": [
     "comparator",
