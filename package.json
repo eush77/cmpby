@@ -1,7 +1,7 @@
 {
   "name": "cmp-key",
   "version": "0.0.0",
-  "description": "Create comparator from key function",
+  "description": "Create comparator from key or less function",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/eush77/cmp-key",
