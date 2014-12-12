@@ -1,0 +1,31 @@
+{
+  "name": "cmp-key",
+  "version": "0.0.0",
+  "description": "Create comparator from key function",
+  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/eush77/cmp-key",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eush77/cmp-key"
+  },
+  "bugs": {
+    "url": "https://github.com/eush77/cmp-key/issues"
+  },
+  "keywords": [
+    "comparator",
+    "key",
+    "function",
+    "less",
+    "greater",
+    "equal",
+    "compare",
+    "comparison",
+    "ascending",
+    "descending"
+  ],
+  "dependencies": {
+    "declared": "^0.1.0"
+  },
+  "devDependencies": {}
+}
