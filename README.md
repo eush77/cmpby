@@ -16,8 +16,6 @@ Comparator is a function that given two arguments `a` and `b` returns a number t
 
 Comparators are used in such functions as `Array.prototype.sort` to set up object ordering.
 
-Unfortunately, it is not very pleasant to define such functions, hence this module.
-
 ## Example
 
 ```js

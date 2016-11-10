@@ -37,6 +37,10 @@ test('cmpby', t => {
     t.deepEqual([...array].sort(cmpby()), [...array].sort());
   }
 
+  t.deepEqual(['1', 1].sort(cmpby(x => x)),
+              ['1', 1].sort(),
+              'should always use lessfn in comparison, not == or ===');
+
   t.end();
 });
 
@@ -55,6 +59,10 @@ test('cmpby.less', t => {
       .map(elem => elem.symbol)
       .join(''),
     'PuSbKrLiZn');
+
+  t.deepEqual(['1', 1].sort(cmpby.less((x, y) => x < y)),
+              ['1', 1].sort(),
+              'should always use lessfn in comparison, not == or ===');
 
   t.end();
 });

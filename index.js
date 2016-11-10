@@ -46,37 +46,34 @@ function fixArgs (callee) {
       options = options || {};
     }
 
-    // If not options.asc, invert the result.
-    const ifLess = options.asc || options.asc == null ? -1 : 1;
+    options.asc = options.asc || options.asc == null;
 
-    return callee(ifLess, fn);
+    return callee(options, fn);
   };
 }
 
 
+// Core comparator logic.
+function compare (options, less, x, y) {
+  const ifLess = options.asc ? -1 : 1;
+
+  return less(x, y) ? ifLess
+    : less(y, x) ? -ifLess
+    : 0;
+}
+
+
 // Comparator by key.
-module.exports = fixArgs(function cmpby (ifLess, keyfn) {
-  if (!keyfn) {
+module.exports = fixArgs(function cmpby (options, key) {
+  if (!key) {
     // Return the default comparator.
     return sortCompare;
   }
 
-  return (a, b) => {
-    const ka = keyfn(a);
-    const kb = keyfn(b);
-
-    return ka === kb ? 0
-      : ka < kb ? ifLess
-      : -ifLess;
-  };
+  return (x, y) =>
+    compare(options, (x, y) => x < y, key(x), key(y));
 });
 
 
-// Comparator by less-than.
-module.exports.less = fixArgs(function cmpbyLess (ifLess, lessfn) {
-  return (a, b) => (
-    a === b ? 0
-      : lessfn(a, b) ? ifLess
-      : -ifLess
-  );
-});
+// Comparator by less-than - binds `compare` to arguments passed by `fixArgs`.
+module.exports.less = fixArgs(Function.bind.bind(compare, null));
