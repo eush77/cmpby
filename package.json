@@ -27,9 +27,7 @@
     "ascending",
     "descending"
   ],
-  "dependencies": {
-    "declared": "^0.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "tape": "^3.0.3"
   }

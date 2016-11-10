@@ -7,7 +7,7 @@
 [david]: https://david-dm.org/eush77/cmpby
 [david-badge]: https://david-dm.org/eush77/cmpby.png
 
-Make comparator from key function, less function, or both.
+Make comparator from key function or less function.
 
 Comparator is a function that given two arguments `a` and `b` returns a number that is:
   - negative if `a` precedes `b`;
@@ -21,27 +21,36 @@ Unfortunately, it is not very pleasant to define such functions, hence this modu
 ## Example
 
 ```js
-> ['aaa', 'zz', 'd'].sort(cmpby({
-    less: function (a, b) { return a.length < b.length; }
-  }))
+> ['aaa', 'zz', 'd'].sort(cmpby(a => a.length))
+[ 'd', 'zz', 'aaa' ]
+
+> ['aaa', 'zz', 'd'].sort(cmpby.less((a, b) => a.length < b.length ))
 [ 'd', 'zz', 'aaa' ]
 ```
 
 ## API
 
-### `cmpby([keyfn], [options])`
+### `cmpby([options], [keyfn])`
 
-`keyfn` maps objects to keys.
+```
+keyfn :: Object -> Key
+```
 
-`options.less` maps pairs of objects to boolean values.
+Constructs comparator from the key function. Key function defaults to the identity function.
 
-`options.asc` controls in what order does comparator order objects (ascending or descending).
+### `cmpby([options], lessfn)`
 
-|              | Type                    | Required? | Default    |
-| :----------- | :---------------------- | :-------: | :--------- |
-| keyfn        | obj -> key              | No        | identity   |
-| options.less | (key1, key2) -> boolean | No        | operator   |
-| options.asc  | boolean                 | No        | `true`     |
+```
+lessfn :: (Object, Object) -> Boolean
+```
+
+Constructs comparator from the less-than function.
+
+#### `options.asc`
+
+type | default | description
+:--: | :-----: | :---------:
+Boolean | `true` | If `false`, inverts comparator
 
 ## Install
 

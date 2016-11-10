@@ -1,36 +1,40 @@
 'use strict';
 
-var declared = require('declared');
 
-
-/**
- * Create comparator by key.
- *
- * @arg {obj -> key} [keyfn] - Key function, identity by default.
- * @arg {Object} [options]
- * @property {(key1, key2) -> boolean} [less] - Key comparison function.
- * @property {boolean} [asc=true] - Ascending or descending.
- * @return {(obj1, obj2) -> number}
- */
-module.exports = function (keyfn, options) {
-  if (typeof keyfn != 'function') {
-    options = keyfn;
-    keyfn = function (x) { return x; };
-  }
-
-  options = options || {};
-  options.less = options.less || function (a, b) { return a < b; };
-  options.asc = declared(options.asc, true);
-
-  return function (a, b) {
-    var ka = keyfn(a);
-    var kb = keyfn(b);
-
-    if (ka === kb) {
-      return 0;
+// Deal with missing arguments and default values.
+function fixArgs (defaultFn, callee) {
+  return (options, fn) => {
+    if (typeof fn != 'function') {
+      fn = options || defaultFn;
+      options = {};
     }
 
-    var keyLess = options.less(ka, kb);
-    return (options.asc ? keyLess : !keyLess) ? -1 : 1;
+    // If not options.asc, invert the result.
+    const ifLess = options.asc || options.asc == null ? -1 : 1;
+
+    return callee(ifLess, fn);
   };
-};
+}
+
+
+// Comparator by key.
+module.exports = fixArgs(x => x, function cmpby (ifLess, keyfn) {
+  return (a, b) => {
+    const ka = keyfn(a);
+    const kb = keyfn(b);
+
+    return ka === kb ? 0
+      : ka < kb ? ifLess
+      : -ifLess;
+  };
+});
+
+
+// Comparator by less-than.
+module.exports.less = fixArgs(null, function cmpbyLess (ifLess, lessfn) {
+  return (a, b) => (
+    a === b ? 0
+      : lessfn(a, b) ? ifLess
+      : -ifLess
+  );
+});
