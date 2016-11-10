@@ -30,13 +30,13 @@ Unfortunately, it is not very pleasant to define such functions, hence this modu
 
 ## API
 
-### `cmpby([options], [keyfn])`
+### `cmpby([options], keyfn)`
 
 ```
 keyfn :: Object -> Key
 ```
 
-Constructs comparator from the key function. Key function defaults to the identity function.
+Constructs comparator from the key function.
 
 ### `cmpby([options], lessfn)`
 
@@ -45,6 +45,10 @@ lessfn :: (Object, Object) -> Boolean
 ```
 
 Constructs comparator from the less-than function.
+
+### `cmpby([options])`
+
+Returns [the default comparator](http://www.ecma-international.org/ecma-262/7.0/index.html#sec-sortcompare).
 
 #### `options.asc`
 

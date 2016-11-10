@@ -30,6 +30,13 @@ test('cmpby', t => {
 
   t.deepEqual([1, 4, 2, 3].sort(cmpby()), [1, 2, 3, 4]);
 
+  {
+    const array = [0, 10, 2, 'a', false, null, true, 'z',
+                   undefined, undefined];
+
+    t.deepEqual([...array].sort(cmpby()), [...array].sort());
+  }
+
   t.end();
 });
 
