@@ -27,6 +27,9 @@
     "ascending",
     "descending"
   ],
+  "engines": {
+    "node": ">=5"
+  },
   "dependencies": {},
   "devDependencies": {
     "tape": "^3.0.3"
