@@ -1,6 +1,9 @@
-# cmpby [![Build Status][travis-badge]][travis] [![Dependency Status][david-badge]][david]
-
 [![npm](https://nodei.co/npm/cmpby.png)](https://nodei.co/npm/cmpby/)
+
+# cmpby
+
+[![Build Status][travis-badge]][travis]
+[![Dependency Status][david-badge]][david]
 
 [travis]: https://travis-ci.org/eush77/cmpby
 [travis-badge]: https://travis-ci.org/eush77/cmpby.svg
